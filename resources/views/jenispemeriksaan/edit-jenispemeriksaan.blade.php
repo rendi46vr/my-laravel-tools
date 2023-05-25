@@ -28,12 +28,11 @@
                     <td>Poli</td>
                     <td>
                         <div class="vr-form">
-                            <select name="type" class="msgtype form-control">
-                                <option hidden selected value="{{$jp->type}}">{{$jp->type}}</option>
-                                <option value="Poli Umum">Poli Umum</option>
-                                <option value="Poli Gigi">Poli Gigi</option>
-                                <option value="Poli Kandungan">Poli Kandungan</option>
-                                <option value="Poli Anak">Poli Anak</option>
+                            <select name="koddiv" class="msgkoddiv form-control">
+                                <option hidden selected value="{{$jp->koddiv}}">{{$jp->koddiv}}</option>
+                                @foreach($poli as $pol)
+                                <option value="{{$pol->kod}}">{{$pol->nam}}</option>
+                                @endforeach
                             </select>
                             <div class="help-block text-danger with-errors"></div>
 

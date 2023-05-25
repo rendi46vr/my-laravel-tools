@@ -3,12 +3,9 @@
     var my_form, name_class,action;
     var auto_focus = false;
     $(document).ready(function(){
-        errorForm()
+        // errorForm()
     $(document).on('click', '.showform', function() {
         const ini = $(this)
-        action =  ini.data('form')
-        name_class = 'App/Http/Requests/' + action;
-        my_form = $('#' + action);
         const mod = $(ini.data('target'));
         mod.modal('show')
         // mod.find('form').attr('id', action)
@@ -26,29 +23,41 @@
     //create and update
     $(document).on('click', "button[type=submit]", function(e) {
         e.preventDefault()
-        validate(action, refreshData);
+        const form = $(this).closest('form')
+        action =  form.attr('id');
+        console.log(action);
+        name_class = 'App/Http/Requests/' + action;
+        my_form = form
+        c(form.hasClass('another'))
+        form.hasClass('another') ? validate(action, another) : validate(action, refreshData);
     });
-   
+    $(document).on('click', ".show-triger", function(e) {
+      edit($(this).data('add'), '.show-data');
+    });
     })
     //paginaition with search
-    $(".vr-search").on("click", function() {
-        if ($(".search-value").val() != "") {
+    $(document).on("click",".vr-search", function() {
+        c('ok')
+        let search = $(".search-value").val()
+        if (search != "") {
             $(".show-sv").text("Hasil Pencarian : " + $(".search-value").val());
         } else {
             $(".show-sv").text("");
+            search = 'all-data';
         }
-        doReq(this.dataset.add + "/" + $(".search-value").val(), null, refreshData, true)
+        doReq(this.dataset.add + "/" + search, searchData(), refreshData, true)
     })
     function pagination(ini, data =null){
         doReq(ini.data("add"), data, refreshData, true);
     }
     $(document).on('click', '.mypagination', function() {
-        pagination($(this), searchData())
+        pagination($(this), searchData() || null)
     })
     //getdata and delete
     function edit(u,c) {
         doReq(u, null, (res) => {
             $(c).html(res)
+            console.log(res)
         })
     }
 
@@ -103,21 +112,25 @@
                         const mymo = $('#' + my_form.closest('.modal').attr('id'))
                         mymo.modal('hide')
                         my_form[0].reset();
-                        doReq(a ,mydata,r)
+                        c()
+                        doReq(a ,mydata,r, true)
                         my_form.find('.help-block').html('')
 
                     }
                 } else {
                     var campos_error = [];
-
                     $.each(data.errors, function(key, data) {
                         var campo = my_form.find('.msg' + key);
                         var father = campo.parents('.vr-form');
+                        var next = father.find('.help-block')
                         father.removeClass('has-success');
                         father.addClass('has-error');
-                        father.find('.help-block').html(data[0]);
+                        if(next.length > 0){
+                            next.html(data[0])
+                        }else{
+                            campo.after('<div class="help-block text-danger with-errors"> '+data[0]+' </div>');
+                        }
                         campos_error.push(key);
-
                     });
                     $.each(my_form.serializeArray(), function(i, field) {
                         if ($.inArray(field.name, campos_error) === -1) {
@@ -133,7 +146,7 @@
                 }
             },
             error: function(xhr) {
-                console.log(xhr.status);
+                console.log(xhr);
             }
         });
         return false;
@@ -159,7 +172,7 @@
                 // console.log(result)
             },
             error: function(xhr) {
-                console.log(xhr.status);
+                console.log(xhr);
             }
         });
     }
@@ -183,6 +196,9 @@
     if (inp.find('.help-block').length <= 0) {
         inp.append('<div class="help-block text-danger with-errors"></div>');
     }
+}
+function c(data= 'ok'){
+    console.log(data)
 }
 function loading(){
     return ("<div class='loader-wrapper d-flex justify-content-center align-items-center'><div class='loader'><div class='ball-spin-fade-loader'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>");

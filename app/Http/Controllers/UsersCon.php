@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Tools\Tools;
 
 class UsersCon extends Controller
 {
@@ -16,11 +17,12 @@ class UsersCon extends Controller
     private function users($message = null, $page = 1,  $search = null)
     {
         if ($search == null) {
-            $users = user::select('username', 'name', 'role', 'id')->orderBy('id', 'desc')->paginate(10, ['*'], 'pageusers', $page);
+            $users = user::select('username', 'name', 'role', 'id')->orderBy('id', 'desc')->paginate(10, ['*'], null, $page);
         } else {
-            $users = user::select('username', 'name', 'role', 'id')->where('username', 'like', "%$search%")->orderBy('id', 'desc')->paginate(10, ['*'], 'pageusers', $page);
+            $users = user::select('username', 'name', 'role', 'id')->where('username', 'like', "%$search%")->orderBy('id', 'desc')->paginate(10, ['*'], null, $page);
         }
-        return view('users.table-users', compact('users'))->with("message", $message)->render();
+        $pagination = Tools::ApiPagination($users->lastPage(), $page, 'pageusers');
+        return view('users.table-users', compact('users', 'pagination'))->with("message", $message)->render();
     }
     public function index()
     {

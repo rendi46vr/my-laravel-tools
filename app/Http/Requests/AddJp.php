@@ -26,7 +26,7 @@ class AddJp extends FormRequest
         return [
             'kode' => 'required|unique:jenispemeriksaans',
             'jenis' => 'required|max:100',
-            'type' => 'required:max:60',
+            'koddiv' => 'required:max:6',
         ];
     }
 
@@ -37,8 +37,8 @@ class AddJp extends FormRequest
             'kode.unique' => "Kode terpakai",
             'jenis.required' => 'Jenis harus diisi',
             'jenis.max' => 'Maksimal 100 kata!',
-            'type.required' => 'Poli harus diisi!',
-            'type.max' => 'Maksimal 60 kata!',
+            'koddiv.required' => 'Poli harus diisi!',
+            'koddiv.max' => 'Maksimal 60 kata!',
         ];
     }
     public function attributes()
@@ -46,7 +46,7 @@ class AddJp extends FormRequest
         return [
             'kode' => 'Kode',
             'jenis' => 'Jenis',
-            'type' => 'Type',
+            'koddiv' => 'Poli',
         ];
     }
 }

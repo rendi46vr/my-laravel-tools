@@ -56,7 +56,7 @@
 @endsection
 @section('bottom')
 
-<div class="modal fade  " id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -67,168 +67,165 @@
             </div>
             <div class="modal-body">
                 <form id="AddUser" action="test" method="post">
-                    <div class="table-responsive">
+                    <div class="row">
+                        @csrf
+                        <div class="col-lg-12">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <td> Username</td>
+                                        <td>
+                                            <div class="vr-form">
+                                                <input class="msgusername" name="username" type="text">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>
+                                            <div class="vr-form">
+                                                <input class="msgname" name="name" type="text" size="50">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role</td>
+                                        <td>
+                                            <div class="vr-form">
+                                                <input class="msgrole" name="role" type="text" size="50">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Permission</td>
+                                        <td>
+                                            <div class="row p-0">
+                                                <div class="col-md-6 col-lg-6 col-12 p-0">
 
-                        <div class="row">
-                            @csrf
-                            <div class="col-lg-12">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <td> Username</td>
-                                            <td>
-                                                <div class="vr-form">
-                                                    <input class="msgusername" name="username" type="text">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td>
-                                                <div class="vr-form">
-                                                    <input class="msgname" name="name" type="text" size="50">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Role</td>
-                                            <td>
-                                                <div class="vr-form">
-                                                    <input class="msgrole" name="role" type="text" size="50">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Permission</td>
-                                            <td>
-                                                <div class="row p-0">
-                                                    <div class="col-md-6 col-lg-6 col-12 p-0">
-
-                                                        <div class="form-group">
-                                                            <div class="form-check">
-                                                                <input id="closeButton" type="checkbox" form="AddUser" name="checkbox" value="1" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="closeButton">
-                                                                    Close Button
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addBehaviorOnToastClick" type="checkbox" form="AddUser" name="checkbox" value="2" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastClick">
-                                                                    Add behavior on toast click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input disabled="" id="addBehaviorOnToastCloseClick" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastCloseClick">
-                                                                    Add behavior on toast close button click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="debugInfo" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="debugInfo">
-                                                                    Debug
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="progressBar" type="checkbox" form="AddUser" name="checkbox" value="3" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="progressBar">
-                                                                    Progress Bar
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="rtl" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="rtl">
-                                                                    Right-To-Left
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="preventDuplicates" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="preventDuplicates">
-                                                                    Prevent Duplicates
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addClear" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addClear">
-                                                                    Add button to force clearing a toast
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="newestOnTop" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="newestOnTop">
-                                                                    Newest on top
-                                                                </label>
-                                                            </div>
+                                                    <div class="form-group">
+                                                        <div class="form-check">
+                                                            <input id="closeButton" type="checkbox" form="AddJpItem" name="checkbox" value="1" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="closeButton">
+                                                                Close Button
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="addBehaviorOnToastClick" type="checkbox" form="AddJpItem" name="checkbox" value="2" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="addBehaviorOnToastClick">
+                                                                Add behavior on toast click
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input disabled="" id="addBehaviorOnToastCloseClick" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="addBehaviorOnToastCloseClick">
+                                                                Add behavior on toast close button click
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="debugInfo" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="debugInfo">
+                                                                Debug
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="progressBar" type="checkbox" form="AddJpItem" name="checkbox" value="3" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="progressBar">
+                                                                Progress Bar
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="rtl" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="rtl">
+                                                                Right-To-Left
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="preventDuplicates" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="preventDuplicates">
+                                                                Prevent Duplicates
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="addClear" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="addClear">
+                                                                Add button to force clearing a toast
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="newestOnTop" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="newestOnTop">
+                                                                Newest on top
+                                                            </label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-lg-6 col-12 p-0">
-                                                        <div class="form-group">
-                                                            <div class="form-check">
-                                                                <input id="closeButton" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="closeButton">
-                                                                    Close Button
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addBehaviorOnToastClick" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastClick">
-                                                                    Add behavior on toast click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input disabled="" id="addBehaviorOnToastCloseClick" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastCloseClick">
-                                                                    Add behavior on toast close button click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="debugInfo" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="debugInfo">
-                                                                    Debug
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="progressBar" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="progressBar">
-                                                                    Progress Bar
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="rtl" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="rtl">
-                                                                    Right-To-Left
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="preventDuplicates" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="preventDuplicates">
-                                                                    Prevent Duplicates
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addClear" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addClear">
-                                                                    Add button to force clearing a toast
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="newestOnTop" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="newestOnTop">
-                                                                    Newest on top
-                                                                </label>
-                                                            </div>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6 col-12 p-0">
+                                                    <div class="form-group">
+                                                        <div class="form-check">
+                                                            <input id="closeButton" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="closeButton">
+                                                                Close Button
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="addBehaviorOnToastClick" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="addBehaviorOnToastClick">
+                                                                Add behavior on toast click
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input disabled="" id="addBehaviorOnToastCloseClick" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="addBehaviorOnToastCloseClick">
+                                                                Add behavior on toast close button click
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="debugInfo" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="debugInfo">
+                                                                Debug
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="progressBar" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="progressBar">
+                                                                Progress Bar
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="rtl" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="rtl">
+                                                                Right-To-Left
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="preventDuplicates" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="preventDuplicates">
+                                                                Prevent Duplicates
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="addClear" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="addClear">
+                                                                Add button to force clearing a toast
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input id="newestOnTop" type="checkbox" value="checked" class="form-check-input">
+                                                            <label class="form-check-label" for="newestOnTop">
+                                                                Newest on top
+                                                            </label>
                                                         </div>
                                                     </div>
-
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                            <div class="col-lg-12">
-                                <button class="btn btn-primary" type="submit" name="submit">Simpan</button> <button type="reset" class="btn btn-success">BATAL</button>
-                            </div>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="col-lg-12">
+                            <button class="btn btn-primary" type="submit" name="submit">Simpan</button> <button type="reset" class="btn btn-success">BATAL</button>
                         </div>
                     </div>
 
@@ -240,190 +237,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade  " id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="AddUser" action="test" method="post">
-                    <div class="table-responsive">
-                        <div class="row">
-                            @csrf
-                            <div class="col-lg-12">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <td> Username</td>
-                                            <td>
-                                                <div class="vr-form">
-                                                    <input class="msgusername" name="username" type="text">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama</td>
-                                            <td>
-                                                <div class="vr-form">
-                                                    <input class="msgname" name="name" type="text" size="50">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Role</td>
-                                            <td>
-                                                <div class="vr-form">
-                                                    <input class="msgrole" name="role" type="text" size="50">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Permission</td>
-                                            <td>
-                                                <div class="row p-0">
-                                                    <div class="col-md-6 col-lg-6 col-12 p-0">
-
-                                                        <div class="form-group">
-                                                            <div class="form-check">
-                                                                <input id="closeButton" type="checkbox" form="AddUser" name="checkbox" value="1" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="closeButton">
-                                                                    Close Button
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addBehaviorOnToastClick" type="checkbox" form="AddUser" name="checkbox" value="2" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastClick">
-                                                                    Add behavior on toast click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input disabled="" id="addBehaviorOnToastCloseClick" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastCloseClick">
-                                                                    Add behavior on toast close button click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="debugInfo" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="debugInfo">
-                                                                    Debug
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="progressBar" type="checkbox" form="AddUser" name="checkbox" value="3" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="progressBar">
-                                                                    Progress Bar
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="rtl" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="rtl">
-                                                                    Right-To-Left
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="preventDuplicates" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="preventDuplicates">
-                                                                    Prevent Duplicates
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addClear" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addClear">
-                                                                    Add button to force clearing a toast
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="newestOnTop" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="newestOnTop">
-                                                                    Newest on top
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6 col-12 p-0">
-                                                        <div class="form-group">
-                                                            <div class="form-check">
-                                                                <input id="closeButton" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="closeButton">
-                                                                    Close Button
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addBehaviorOnToastClick" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastClick">
-                                                                    Add behavior on toast click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input disabled="" id="addBehaviorOnToastCloseClick" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addBehaviorOnToastCloseClick">
-                                                                    Add behavior on toast close button click
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="debugInfo" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="debugInfo">
-                                                                    Debug
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="progressBar" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="progressBar">
-                                                                    Progress Bar
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="rtl" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="rtl">
-                                                                    Right-To-Left
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="preventDuplicates" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="preventDuplicates">
-                                                                    Prevent Duplicates
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="addClear" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="addClear">
-                                                                    Add button to force clearing a toast
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input id="newestOnTop" type="checkbox" value="checked" class="form-check-input">
-                                                                <label class="form-check-label" for="newestOnTop">
-                                                                    Newest on top
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                            <div class="col-lg-12">
-                                <button class="btn btn-primary" type="submit" name="submit">Simpan</button> <button type="reset" class="btn btn-success">BATAL</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary keluar" data-dismiss="modal">Keluar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade  " id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">

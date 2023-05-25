@@ -45,9 +45,9 @@ class AddUser extends FormRequest
     public function attributes()
     {
         return [
-            'username' => 'Username',
-            'name' => 'Your name',
-            'role' => 'Role',
+            'username' => '',
+            'name' => '',
+            'role' => '',
         ];
     }
 }

@@ -20,13 +20,13 @@
             <td>{{$loop->iteration}}</td>
             <td>{{$jp->kode}}</td>
             <td>{{$jp->jenis}}</td>
-            <td>{{$jp->type}}</td>
-            <td>2</td>
+            <td>@foreach($poli as $pol) @if($jp->koddiv == $pol->kod) {{$pol->nam}} @endif @endforeach</td>
+            <td>{{$jp->items_count}}</td>
             <td>
-                <p class="showform text-primary" data-edit="true" data-uniq="editJp/{{$jp->id}}" data-core=".edit-jenispemeriksaan" data-form='UpdateJp' data-target="#EditModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></p> | <span class="d-inline deldata pointer text-danger" data-uniq="delJp/{{$jp->id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                <a href="jenispemeriksaan/item/{{$jp->kode}}" class="text-warning"><i class="fa fa-list-alt" aria-hidden="true"></i></a> | <p class="showform text-primary" data-edit="true" data-uniq="editJp/{{$jp->id}}" data-core=".edit-jenispemeriksaan" data-form='UpdateJp' data-target="#EditModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></p> | <span class="d-inline deldata pointer text-danger" data-uniq="delJp/{{$jp->id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-{{$jenispemeriksaan->links()}}
+{!! $pagination !!}

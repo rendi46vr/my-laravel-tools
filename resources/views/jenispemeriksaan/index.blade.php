@@ -16,7 +16,7 @@
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item">
-                                        <a>Data Pemeriksaan</a>
+                                        <a>Jenis Pemeriksaan</a>
                                     </li>
                                     <li class="active breadcrumb-item" aria-current="page">
 
@@ -40,6 +40,13 @@
                     </div>
                     <div class="col-12 col-md-5 col-lg-7 align-self-center">
                         <div class="d-flex justify-content-end">
+                            <select name="poli" class="search-height mr-1 poli-val" id="poli">
+                                <option disabled hidden selected>Pilih Poli .....</option>
+                                <option value="">Pilih Semua</option>
+                                @foreach($poli as $pol)
+                                <option value="{{$pol->kod}}">{{$pol->nam}}</option>
+                                @endforeach
+                            </select>
                             <input type="text" class="d-inline search-height search-value mr-1" placeholder="Type to search">
                             <button class=" mr-1 btn-icon btn btn-light vr-search" data-add="searchjps"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class=" mr-1 btn-icon btn btn-danger">Pdf</button>
@@ -93,12 +100,11 @@
                                         <td>Poli</td>
                                         <td>
                                             <div class="vr-form">
-                                                <select name="type" class="msgtype form-control">
+                                                <select name="koddiv" class="msgkoddiv form-control">
                                                     <option disabled hidden selected>Pilih Poli</option>
-                                                    <option value="Poli Umum">Poli Umum</option>
-                                                    <option value="Poli Gigi">Poli Gigi</option>
-                                                    <option value="Poli Kandungan">Poli Kandungan</option>
-                                                    <option value="Poli Anak">Poli Anak</option>
+                                                    @foreach($poli as $pol)
+                                                    <option value="{{$pol->kod}}">{{$pol->nam}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </td>
@@ -141,17 +147,16 @@
 <script type="text/javascript">
     function refreshData(res) {
         $('.table-jenispemeriksaan').html(res);
+        console.log(res);
     }
 
     function searchData() {
-        if ($(".search-value") != null) {
-            return {
-                _token: tkn(),
-                search: $(".search-value").val()
-            }
-        } else {
-            return null
+        var data = {
+            _token: tkn(),
+            search: $(".search-value").val(),
+            poli: $('.poli-val').val(),
         }
+        return data;
     }
 </script>
 @endsection

@@ -26,7 +26,7 @@ class UpdateJp extends FormRequest
         return [
             'kode' => 'required|unique:jenispemeriksaans,kode,' . $uniq,
             'jenis' => 'required|max:100',
-            'type' => 'required:max:60',
+            'koddiv' => 'required:max:60',
         ];
     }
 
@@ -37,8 +37,8 @@ class UpdateJp extends FormRequest
             'kode.unique' => "Kode Terpakai",
             'jenis.required' => 'Do not forget your Jenis',
             'jenis.max' => 'Maksimal 100 kata!',
-            'type.required' => 'Poli Harus diisi!',
-            'type.max' => 'Maksimal 60 kata!',
+            'koddiv.required' => 'Poli Harus diisi!',
+            'koddiv.max' => 'Maksimal 60 kata!',
         ];
     }
     public function attributes()
@@ -46,7 +46,7 @@ class UpdateJp extends FormRequest
         return [
             'kode' => 'Kode',
             'jenis' => 'Jenis',
-            'type' => 'Type',
+            'koddiv' => 'Poli',
         ];
     }
 }
