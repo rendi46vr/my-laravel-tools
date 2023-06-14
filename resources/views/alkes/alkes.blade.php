@@ -19,7 +19,7 @@
                                         <a>Obat & Alkes</a>
                                     </li>
                                     <li class="active breadcrumb-item" aria-current="page">
-                                        Obat
+                                        Alkes
                                     </li>
                                 </ol>
                             </nav>
@@ -39,13 +39,13 @@
                     <div class="col-12 col-md-5 col-lg-7 align-self-center">
                         <div class="d-flex justify-content-end">
                             <input type="text" class="d-inline search-height search-value mr-1" placeholder="Type to search">
-                            <button class=" mr-1 btn-icon btn btn-light vr-search" data-val="" data-add="searchobat"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class=" mr-1 btn-icon btn btn-light vr-search" data-val="" data-add="searchalkes"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class=" mr-1 btn-icon btn btn-success " wire:click.prevent="create()">Excel</button>
                         </div>
                     </div>
                 </div>
                 <div class="card-body table-responsive table-jenispemeriksaan">
-                    {!! $obats !!}
+                    {!! $alkes !!}
                 </div>
             </div>
         </div>

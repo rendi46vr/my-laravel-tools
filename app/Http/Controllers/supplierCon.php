@@ -19,7 +19,7 @@ class supplierCon extends Controller
     {
 
         if (!$search) {
-            $suppliers = supplier::orderBy('id', 'desc')->paginate(1, ['*'], null, $page);
+            $suppliers = supplier::orderBy('id', 'desc')->paginate(20, ['*'], null, $page);
         } else {
             $search = Session::get('obsupplierSearch');
             $suppliers = supplier::where(function ($e) use ($search) {
@@ -27,7 +27,7 @@ class supplierCon extends Controller
                     $e->where('kode_supplier', 'like', '%' . $search['search'] . '%')
                         ->orwhere('nama_supplier', 'like', '%' . $search['search'] . '%');
                 }
-            })->orderBy('id', 'desc')->paginate(1, ['*'], null, $page);
+            })->orderBy('id', 'desc')->paginate(20, ['*'], null, $page);
         }
         $pagination = Tools::ApiPagination($suppliers->lastPage(), $page, 'pagesupplier');
         return view('suppliers.table-supplier', compact('suppliers', 'pagination', 'message'))->render();
@@ -52,7 +52,6 @@ class supplierCon extends Controller
         return view('suppliers.edit-supplier', compact('supplier'))->render();
         //
     }
-
     public function updateSupplier(Request $request)
     {
         $validasiData = $request->validate([
@@ -76,7 +75,6 @@ class supplierCon extends Controller
     }
     public function pageSupplier($page)
     {
-
         if (Session::has('obsupplierSearch')) {
             return $this->suppliers(null, $page, true);
         } else {

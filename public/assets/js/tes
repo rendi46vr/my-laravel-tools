@@ -1,0 +1,13 @@
+INSERT INTO `tsalpenrut` (`NamPr`, `Tin`, `idta`, `NIS`, `CoaPen`, `CoaPiu`, `CoaPenDim`, `CoaBelTer`, `Ket`, `Jum`, `BulId`, `Tah`, `Sta`, `Jen`, `idgru`, `Gru`, `UseId`) VALUES ('FAS SMP', 4, 1, '04-02-0060', '402.104', '402.104', '402.104', NULL, 'FASILITAS SMP 2022/2023', 50000.00, 6, '2023', 2, 0, 0, 'FAS SMP', 'MASTER');
+INSERT INTO `tsalpenrut` (`NamPr`, `Tin`, `idta`, `NIS`, `CoaPen`, `CoaPiu`, `CoaPenDim`, `CoaBelTer`, `Ket`, `Jum`, `BulId`, `Tah`, `Sta`, `Jen`, `idgru`, `Gru`, `UseId`) select 'FAS SMP', ts.tin,1, ts.nis, '402.104','402.104', '402.104', null, 'FASILITAS SMP 2023/2024', 50000.00,6,'2023', 0, 0, 0, 'FAS SMP', 'MASTER'  from maimasternew.tsiswa as ts where tin=4
+
+
+INSERT INTO `tsalpenrut` (`NamPr`, `Tin`, `idta`, `NIS`, `CoaPen`, `CoaPiu`, `CoaPenDim`, `CoaBelTer`, `Ket`, `Jum`, `BulId`, `Tah`, `Sta`, `Jen`, `idgru`, `Gru`, `UseId`) VALUES ('MAKAN SMP', 4, 1, '04-02-0060', '401.104', '401.104', '401.104', NULL, 'U. MAKAN SMP 2022/2023', 250000.00, 6, '2023', 2, 0, 0, 'MAKAN SMP', 'MASTER');
+INSERT INTO `tsalpenrut` (`NamPr`, `Tin`, `idta`, `NIS`, `CoaPen`, `CoaPiu`, `CoaPenDim`, `CoaBelTer`, `Ket`, `Jum`, `BulId`, `Tah`, `Sta`, `Jen`, `idgru`, `Gru`, `UseId`) SELECT  'MAKAN SMP', ts.tin,1, ts.nis, '401.104', '401.104', '401.104', NULL, 'U. MAKAN SMP 2023/2024',280000.00, 6, '2023', 2, 0, 0, 'MAKAN SMP', 'MASTER'  from maimasternew.tsiswa as ts where tin=4
+
+
+
+
+INSERT INTO `tsalpenrut` (`NamPr`, `Tin`, `idta`, `NIS`, `CoaPen`, `CoaPiu`, `CoaPenDim`, `CoaBelTer`, `Ket`, `Jum`, `BulId`, `Tah`, `Sta`, `Jen`, `idgru`, `Gru`, `UseId`) VALUES ('SPP SMP', 4, 1, '04-02-0060', '401.004', '401.004', '401.004', NULL, 'SPP SMP 2022/2023', 400000.00, 6, '2023', 2, 0, 0, 'SPP SMP', 'MASTER');
+INSERT INTO `tsalpenrut` (`NamPr`, `Tin`, `idta`, `NIS`, `CoaPen`, `CoaPiu`, `CoaPenDim`, `CoaBelTer`, `Ket`, `Jum`, `BulId`, `Tah`, `Sta`, `Jen`, `idgru`, `Gru`, `UseId`) SELECT  'SPP SMP',ts.tin,1, ts.nis, '401.004', '401.004', '401.004', NULL, 'SPP SMP 2023/2024', 430000.00, 6, '2023', 2, 0, 0, 'SPP SMP', 'MASTER' from maimasternew.tsiswa as ts where tin=4
+

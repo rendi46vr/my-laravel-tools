@@ -8,6 +8,7 @@ use App\Models\pendaftaran;
 use App\Http\Controllers\diagnosaCon;
 use Illuminate\Support\Facades\Session;
 use App\Models\diagnosapasien;
+use App\Http\Controllers\resepCon;
 use App\Http\Controllers\tindakanCon;
 
 class prosesPendaftaran extends Controller
@@ -43,10 +44,10 @@ class prosesPendaftaran extends Controller
     }
     public function index()
     {
+        // dd(Data::obatAlkes()->paginate(10));
         $inputTindakan = $this->inputTindakan();
         return view('inputtindakan.inputTindakan', compact('inputTindakan'));
     }
-
     private function inputTindakan($message = null)
     {
         $inputTindakan = Data::inputTindakan()->paginate(30);
@@ -60,16 +61,44 @@ class prosesPendaftaran extends Controller
         pendaftaran::destroy($id);
         return $this->inputTindakan();
     }
-
-
-    public function prosesview($id, diagnosaCon $d, tindakanCon $t)
+    public function prosesview($id, diagnosaCon $d, tindakanCon $t, obatCon $ob, resepCon $rs)
     {
-        // dd(session()->all());
-        $pendaftar = Data::inputTindakan()->where('pen.id', $id)->first();
+        try {
+            $pendaftar = Data::inputTindakan()->where('pen.id', $id)->first();
+        } catch (\Throwable $th) {
+            return redirect('inputTindakan');
+        }
         Session::put("inputTindakan", $pendaftar->nopen);
         $diagnosa = $d->diagnosas(false);
-        $tindakanpasien = $t->tindakanPasien();
+        $tindakanPasien = $t->tindakanPasien($pendaftar->nopen);
+        $tableTindakan = $t->tindakan();
+        $reseps = $rs->reseppasiens($pendaftar->nopen);
+        $tableObat = $ob->obats(1, false, false)->getData()->data;
         $diagnosapasien = diagnosaCon::diagnosaPasien($pendaftar->nopen);
-        return view('inputtindakan.tindakan', compact('pendaftar', 'diagnosa', 'diagnosapasien', 'tindakanPasien'));
+        return view('inputtindakan.tindakan', compact('pendaftar', 'diagnosa', 'diagnosapasien', 'tindakanPasien', 'tableTindakan', 'tableObat', 'reseps'));
+    }
+
+    public function inputCatatan(Request $request)
+    {
+        $validasi = $request->validate([
+            'alergi' => 'max:255',
+            'tinggibadan' => 'max:10',
+            'beratbadan' => 'max:7',
+            'tekanandarah' => 'max:50',
+            'catatan' => ''
+        ]);
+        $catatan = pendaftaran::where('nopen', session('inputTindakan'))->update($validasi);
+    }
+
+
+    public function prosespendaftaran()
+    {
+        $catatan = pendaftaran::where('nopen', session('inputTindakan'))->first();
+        if (session()->has('inputTindakan')) {
+            $catatan->update(['status' => 1]);
+            return redirect('so');
+        } else {
+            return redirect('inputTindakan/' . $catatan->id);
+        }
     }
 }

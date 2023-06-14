@@ -25,7 +25,7 @@
             <td>{{$d->diagnosa}}</td>
             <td>
                 <!-- "addp" -->
-                <button class="btn btn-success nextket d-inline" data-kode="{{$d->id}}"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button class="btn btn-success nextket d-inline" data-popup="true" data-kode="{{$d->id}}"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 <p class="m-0 d-inline d{{$d->id}}"></p>
             </td>
         </tr>

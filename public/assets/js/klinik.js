@@ -29,12 +29,19 @@
         name_class = 'App/Http/Requests/' + action;
         my_form = form
         c(form.hasClass('another'))
-        form.hasClass('another') ? validate(action, another) : validate(action, refreshData);
+        if($(this).hasClass("resetFalse")){
+            validate(action, refreshData, false)
+        }else{
+            form.hasClass('another') ? validate(action, another) : validate(action, refreshData);
+        }
     });
     $(document).on('click', ".show-triger", function(e) {
       edit($(this).data('add'), '.show-data');
     });
     })
+    $(document).on('click', ".action", function(e) {
+        edit($(this).data('add'), $(this).data('show'));
+      });
     //paginaition with search
     $(document).on("click",".vr-search", function() {
         c('ok')
@@ -45,7 +52,11 @@
             $(".show-sv").text("");
             search = 'all-data';
         }
-        doReq(this.dataset.add + "/" + search, searchData(), refreshData, true)
+        if(this.dataset.val.length >0){
+            doReq(this.dataset.add + "/" + search, searchData(this.dataset.val), refreshData, true)
+        }else{
+            doReq(this.dataset.add + "/" + search, searchData(), refreshData, true)
+        }
     })
     function pagination(ini, data =null){
         doReq(ini.data("add"), data, refreshData, true);
@@ -64,7 +75,7 @@
     function deldata(u) {
         doReq(u, null, refreshData);
     }
-    function validate(a,r) {
+    function validate(a,r, b=true) {
         var data = my_form.serializeArray();
         var mydata = {}
         console.log(data)
@@ -111,11 +122,10 @@
                         })
                         const mymo = $('#' + my_form.closest('.modal').attr('id'))
                         mymo.modal('hide')
-                        my_form[0].reset();
+                        b ? my_form[0].reset(): '';
                         c()
                         doReq(a ,mydata,r, true)
                         my_form.find('.help-block').html('')
-
                     }
                 } else {
                     var campos_error = [];
@@ -169,7 +179,6 @@
             },
             success: function(result) {
                 callback(result)
-                // console.log(result)
             },
             error: function(xhr) {
                 console.log(xhr);

@@ -7,6 +7,7 @@ use App\Models\diagnosa;
 use App\Models\diagnosapasien;
 use Illuminate\Support\Facades\Session;
 use App\Tools\Tools;
+use App\Models\pendaftaran;
 
 class diagnosaCon extends Controller
 {

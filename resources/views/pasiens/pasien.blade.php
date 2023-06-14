@@ -49,7 +49,7 @@
                                 @endforeach
                             </select>
                             <input type="text" class="d-inline search-height search-value mr-1" placeholder="Type to search">
-                            <button class="mr-1 btn-icon btn btn-light vr-search" data-add="searchpasien"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class="mr-1 btn-icon btn btn-light vr-search" data-val="" data-add="searchpasien"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <button class="mr-1 btn-icon btn btn-danger">Pdf</button>
                             <button class="mr-1 btn-icon btn btn-success" wire:click.prevent="create()">Excel</button>
                         </div>

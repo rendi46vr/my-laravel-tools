@@ -95,4 +95,9 @@ class Tools
             return view("tools.apipagination", ["paginator" => $pg, "elements" => $element])->render();
         }
     }
+    public static function fRupiah($rupiah)
+    {
+        $hasil_rupiah = "Rp " . number_format($rupiah, 2, ',', '.');
+        return $hasil_rupiah;
+    }
 }

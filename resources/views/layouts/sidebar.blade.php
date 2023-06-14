@@ -90,6 +90,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{url('kasir')}}">
+                                <i class="metismenu-icon"></i> Kasir
+                            </a>
+                        </li>
+                        <li>
                             <a href="obalkes">
                                 <i class="metismenu-icon"></i>Alkes
                             </a>
@@ -105,7 +110,6 @@
                     <a href="#">
                         <i class="metismenu-icon fa fa-id-card" aria-hidden="true"></i></i>Dokter
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-
                     </a>
                     <ul>
                         <li>

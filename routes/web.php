@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\alkesCon;
 use App\Http\Controllers\diagnosaCon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -11,7 +12,11 @@ use App\Http\Controllers\obatCon;
 use App\Http\Controllers\pasienCon;
 use App\Http\Controllers\prosesPendaftaran;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\tindakanCon;
 use App\Http\Controllers\dokterCon;
+use App\Http\Controllers\kasirCon;
+use App\Http\Controllers\pembayaranCon;
+use App\Http\Controllers\resepCon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,15 +105,27 @@ Route::post("delsupplier/{id}", [supplierCon::class, 'delete']);
 Route::post("searchsupplier/{id}", [supplierCon::class, 'searchSupplier']);
 Route::post("pagesupplier/{id}", [supplierCon::class, 'pageSupplier']);
 //Obat
-Route::get("obat", [obatCon::class, 'index']);                          ///belum selesai
-Route::post("AddObat", [obatCon::class, 'AddObat']);                    ///belum selesai
-Route::post("editobat/{id}", [obatCon::class, 'editObat']);             ///belum selesai
-Route::post("UpdateObat", [obatCon::class, 'UpdateObat']);               ///belum selesai
-Route::post("delobat/{id}", [obatCon::class, 'delete']);                 ///belum selesai
-Route::post("searchobat/{search}", [obatCon::class, 'searchObat']);      ///belum selesai
-Route::post("pageObat/{page}", [obatCon::class, 'pageObat']);         ///belum selesai
+Route::get("obat", [obatCon::class, 'index']);
+// Route::post("AddObat", [obatCon::class, 'AddObat']);                    ///belum selesai
+// Route::post("editobat/{id}", [obatCon::class, 'editObat']);             ///belum selesai
+// Route::post("UpdateObat", [obatCon::class, 'UpdateObat']);               ///belum selesai
+Route::post("delobat/{id}", [obatCon::class, 'delete']);
+Route::post("searchobat/{search}", [obatCon::class, 'searchObat']);
+Route::post("pageobat/{page}", [obatCon::class, 'pageobat']);
+Route::get("obalkes", [alkesCon::class, 'index']);
+Route::post("delalkes/{id}", [alkesCon::class, 'delete']);
+Route::post("searchalkes/{search}", [alkesCon::class, 'searchalkes']);
+Route::post("pagealkes/{page}", [alkesCon::class, 'pagealkes']);
 
-
+//Dokter
+Route::get('dokter', [dokterCon::class, 'index']);
+Route::post('AddDokter', [dokterCon::class, 'AddDokter']);
+Route::post('editdokter/{id}', [dokterCon::class, 'editdokter']);
+Route::post('showdokter/{id}', [dokterCon::class, 'showdokter']);
+Route::post('UpdateDokter', [dokterCon::class, 'UpdateDokter']);
+Route::post('deldokter/{id}', [dokterCon::class, 'deldokter']);
+Route::post('pagedokter/{page}', [dokterCon::class, 'pagedokter']);
+Route::post('searchdokter/{search}', [dokterCon::class, 'searchdokter']);
 //Pasien
 Route::get('pasien', [pasienCon::class, 'index']);
 Route::post('AddPasien', [pasienCon::class, 'AddPasien']);
@@ -130,18 +147,31 @@ Route::get('inputTindakan/{id}', [prosesPendaftaran::class, 'prosesview']);
 //diagnosas
 Route::post('pagediagnosas/{page}', [diagnosaCon::class, 'pagediagnosa']);
 Route::post('searchdiagnosas/{search}', [diagnosaCon::class, 'searchdiagnosa']);
-//add diganosa pasien
+//add diganosa pada pasien
 route::post("itdiagnosa/{id}", [diagnosaCon::class, 'adddiagnosapasien']);
+//add tindakan pada pasien
+route::post("atpasien/{id}", [tindakanCon::class, 'addtpasien']);
+route::post('pagetindakan/{page}', [tindakanCon::class, 'pagetindakan']);
+Route::post('searchtindakan/{search}', [tindakanCon::class, 'searchtindakan']);
+Route::post('deltindakan/{id}', [tindakanCon::class, 'delete']);
+
+// addrpasien
+// add resep pasien
+route::post('addrpasien/{id}', [resepCon::class, 'addresep']);
+route::post('editresep', [resepCon::class, 'editresep']);
+route::post('delresp/{id}', [resepCon::class, 'delete']);
+route::post('inputCatatan', [prosesPendaftaran::class, 'inputCatatan']);
+route::get('prosestindakan', [prosesPendaftaran::class, 'prosespendaftaran']);
 
 
-//Dokter
-Route::get('dokter', [dokterCon::class, 'index']);
-Route::post('AddDokter', [dokterCon::class, 'AddDokter']);
-Route::post('editdokter/{id}', [dokterCon::class, 'editdokter']);
-Route::post('showdokter/{id}', [dokterCon::class, 'showdokter']);
-Route::post('UpdateDokter', [dokterCon::class, 'UpdateDokter']);
-Route::post('deldokter/{id}', [dokterCon::class, 'deldokter']);
-Route::post('pagedokter/{page}', [dokterCon::class, 'pagedokter']);
-Route::post('searchdokter/{search}', [dokterCon::class, 'searchdokter']);
+//sales order / Kasir
+route::get('kasir', [kasirCon::class, 'index']);
+route::get('kasir/{tagihan}', [kasirCon::class, 'tagihan']);
+
+//pembayaran
+route::post('pembayaran', [pembayaranCon::class, 'pembayaran']);
+
+
+
 
 Route::post('deldiagnosa/{id}', [diagnosaCon::class, 'delete']);

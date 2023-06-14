@@ -1,0 +1,94 @@
+INSERT INTO dummy values('Maureen Nyana','01-23-0147');
+INSERT INTO dummy values('Mavis Doralyn Tan','01-23-0148');
+INSERT INTO dummy values('Genevie Chua','01-23-0149');
+INSERT INTO dummy values('Gaveloz Carmin Kwok','01-23-0150');
+INSERT INTO dummy values('Asher Zang','01-23-0151');
+INSERT INTO dummy values('Chelsey Yulia Susanto','01-23-0152');
+INSERT INTO dummy values('Hanessa Tandean','01-23-0153');
+INSERT INTO dummy values('Aurelio Asher','01-23-0154');
+INSERT INTO dummy values('Gareth Farrelly Kye','01-23-0155');
+INSERT INTO dummy values('Rowwance Richardo Lin','01-23-0156');
+INSERT INTO dummy values('Carlie Aisin Chen','01-23-0157');
+INSERT INTO dummy values('Kaitlyn','01-23-0158');
+INSERT INTO dummy values('Khellen Kianna','01-23-0159');
+INSERT INTO dummy values('Gabriel Tan','01-23-0160');
+INSERT INTO dummy values('Jericho Leonardo','01-23-0161');
+INSERT INTO dummy values('Zeba Khaizuran Simorangkir','01-23-0162');
+INSERT INTO dummy values('Eleanor Banega Peranginangin','01-23-0163');
+INSERT INTO dummy values('Elysia Huang','01-23-0164');
+INSERT INTO dummy values('Jackson Alex Sander','01-23-0165');
+INSERT INTO dummy values('Reyhan Fernandez Kho','01-23-0166');
+INSERT INTO dummy values('Fabbio Greyson Ng','02-22-0425');
+INSERT INTO dummy values('Hawen Tjhieson','02-22-0426');
+INSERT INTO dummy values('Olivio Franscisco Chen','02-22-0427');
+INSERT INTO dummy values('Freya Carmin Kwok','02-22-0428');
+INSERT INTO dummy values('Efren Goh Kay En','02-22-0429');
+INSERT INTO dummy values('Matthias Jasper Goh','02-22-0430');
+INSERT INTO dummy values('Josh Lucas','02-22-0431');
+INSERT INTO dummy values('Sherllyn Venessa','02-22-0432');
+INSERT INTO dummy values('Xavyon Sulestson','02-22-0433');
+INSERT INTO dummy values('Yoona Frankmarsley','02-22-0434');
+INSERT INTO dummy values('Maxton Ollivander','02-22-0435');
+INSERT INTO dummy values('Sheirly Stephani','02-22-0436');
+INSERT INTO dummy values('Harvey Winston','02-22-0437');
+INSERT INTO dummy values('Vincent Tay','02-22-0438');
+INSERT INTO dummy values('Layla Jasper','02-22-0439');
+INSERT INTO dummy values('Elyora Tjanwyn','02-22-0440');
+INSERT INTO dummy values('Harrison Kho','02-22-0441');
+INSERT INTO dummy values('Gevariel Ethan Xavier','02-22-0442');
+INSERT INTO dummy values('Alice Dahlia Ma','02-22-0443');
+INSERT INTO dummy values('Heavenie Joyce','02-22-0444');
+INSERT INTO dummy values('Raynand Allison','02-22-0445');
+INSERT INTO dummy values('Martson Vandyca Ang','02-22-0446');
+INSERT INTO dummy values('Denish Jaydenz','02-22-0447');
+INSERT INTO dummy values('Gianna belleryn tjan','02-23-0448');
+INSERT INTO dummy values('Harley Eyson Lim','02-23-0449');
+INSERT INTO dummy values('Frederriel Tan','02-23-0450');
+INSERT INTO dummy values('CLAUDIA LOVEVIENA TWA','02-23-0451');
+INSERT INTO dummy values('BILLY IMMANUEL PURBA','02-23-0452');
+INSERT INTO dummy values('Alberts Peng','02-23-0453');
+INSERT INTO dummy values('GIDEON ASIAN EIRENE SIREGAR','02-23-0454');
+INSERT INTO dummy values('Naomi Saffron','02-23-0455');
+INSERT INTO dummy values('Januar Putra','02-23-0456');
+INSERT INTO dummy values('Max Tandrian ','02-23-0457');
+INSERT INTO dummy values('Jonathan Novebco','02-23-0458');
+INSERT INTO dummy values('Casthyn aillen wang','02-23-0459');
+INSERT INTO dummy values('Brian Dharmawan Lim','02-23-0460');
+INSERT INTO dummy values('Jayrick Song','02-23-0461');
+INSERT INTO dummy values('Jadelyn Arashel Timothy','02-23-0462');
+INSERT INTO dummy values('Elisabeth Eldora Siagian','02-23-0463');
+INSERT INTO dummy values('Audrey Colisna','02-23-0464');
+
+update tsiswa join dummy on tsiswa tsiswa.namlen=dummy.name set NisOk = dummy.nis
+
+
+
+
+
+
+
+010119	Carlie aisin chen	30/06/2019	01-23-0157	
+010121	Chris darren 	07/10/2019		
+010107	ASHER ZHANG	26/12/2019	01-23-0151	
+010102	Mavis Doralyn Tan	01/01/2020	01-23-0148	
+010114	Rowwance Richardo Lin	12/01/2020	01-23-0156	
+010105	Gabriel Tan	19/01/2020	01-23-0160	
+010108	Chelsey Yulia Susanto	28/02/2020	01-23-0152	
+010116	ZEBA KHAIZURAN SIMORANGKIR	03/03/2020	01-23-0162	
+010109	Hanessa Tandean	04/03/2020	01-23-0153	
+010111	ELYSIA HUANG	07/03/2020	01-23-0164	
+010118	Gareth farrelly kye	09/03/2020	01-23-0155	
+010115	AURELIO ASHER	05/04/2020	01-23-0154	
+010110	Jericho Leonardo	13/04/2020	01-23-0161	
+010106	GAVELOZ CARMIN KWOK	10/05/2020	01-23-0150	
+010117	Eleanor Banega Peranginangin	10/06/2020	01-23-0163	
+010103	Khellen kianna	28/06/2020	01-23-0159	
+010122	Gianna Adno Hutajulu	26/07/2020		
+010101	maureen nyana	13/09/2020	01-23-0147	
+010104	Genevie Chua	14/10/2020	01-23-0149	
+010120	Reyhan Fernandez Kho	05/11/2020	01-23-0166	
+010100	Kaitlyn	06/11/2020	01-23-0158	
+010112	Jackson Alex Sander	22/06/2022	01-23-0165	
+
+nis double
+INSERT INTO `tsiswa` (`Tin`, `NIS`, `NISN`, `NisOk`, `NamLen`, `NamPan`, `NamMan`, `TemLah`, `TanLah`, `JenKel`, `Aga`, `Ala`, `Tel`, `Ket`, `Kel`, `NoFor`, `StaAbs`, `Sta`, `StaQd`, `UseId`, `TglInp`) VALUES (2, '020100', NULL, '02-23-0448', 'Gianna belleryn tjan', NULL, NULL, 'KARIMUN', '2019-12-11', 1, -1, 'Baran 2 nomor 57 dekat nagamas masuk\nJl.antena kamkong Baran 2', NULL, NULL, NULL, '020100', 0, 0, 0, 'ADMIN-TK', '2023-02-09 07:20:35');

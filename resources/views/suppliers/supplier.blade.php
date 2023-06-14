@@ -34,7 +34,6 @@
                     <div class="col-12 col-lg-5 col-md-7 p-0">
                         <div class="d-flex justify-content-left align-items-center">
                             <button class=" mr-1 btn-icon btn btn-primary showform" data-form='AddSupplier' data-target="#myModal"><i class="fa fa-plus" aria-hidden="true"></i> Supllier</button>
-                            <button class=" mr-1 btn-icon btn btn-primary currentform"><i class="fa fa-plus" aria-hidden="true"></i> form aktive</button>
                             <p class="d-Inline show-sv m-0"></p>
                         </div>
                     </div>

@@ -117,10 +117,8 @@ class pasienCon extends Controller
         return $this->{$this->core . 's'}(null, null, true);
     }
 
-
     public function showPasien($id)
     {
-
         ${$this->core} = Data::pasien()->select(['tpelanggan.nam as nama', 'tdivisi.nam as poli', 'tpelanggan.kodlan', 'ktp', 'jenkel', 'temlah', 'tgllah', 'umur', 'ema', 'nowa', 'stakaw', 'ala', 'jenbay', 'cat', 'stapas', 'grup', 'kelompok'],)
             ->leftjoin('tdivisi', 'tpelanggan.koddiv', 'tdivisi.kod')->where('tpelanggan.id', $id)
             ->leftJoin('klinik.kelompok', 'tpelanggan.grup', 'kelompok.id')
